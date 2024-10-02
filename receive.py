@@ -65,23 +65,29 @@ def descriptografar_texto_from_cesar(msg_criptografada, chave):
 
 if __name__ == '__main__':
     try:
-        main()
+        while True:
+            main()
 
-        newMessage = msg.decode('utf-8')
+            newMessage = msg.decode('utf-8')
 
-        print(Back.BLUE + "....................................................." + Style.RESET_ALL)
-        print(Back.BLUE + "." + Style.RESET_ALL + "                                                   " + Style.RESET_ALL)
+            print(Back.GREEN + "....................................................." + Style.RESET_ALL)
+            print(Back.GREEN + "." + Style.RESET_ALL + "                                                   " + Style.RESET_ALL)
 
-        key = str(input(Back.BLUE + "." + Style.RESET_ALL + " Informe a chave para ver a mensagem recebida: "))
-        msgDescriptografada = descriptografar_texto_from_cesar(newMessage, key)
+            key = str(input(Back.GREEN + "." + Style.RESET_ALL + " Informe a chave para ver a mensagem recebida: "))
+            msgDescriptografada = descriptografar_texto_from_cesar(newMessage, key)
 
-        print(Back.BLUE + "." + Style.RESET_ALL + f" A mensagem é: '{msgDescriptografada}'")
+            print(Back.GREEN + "." + Style.RESET_ALL + f" A mensagem é: '{msgDescriptografada}'")
 
-        # Inicializa o colorama
-        # init(autoreset=True)
+            # Inicializa o colorama
+            # init(autoreset=True)
 
-        print(Back.BLUE + "." + Style.RESET_ALL + "                                                   " + Style.RESET_ALL)
-        print(Back.BLUE + Fore.WHITE + "....................................................." + Style.RESET_ALL)
+            print(Back.GREEN + "." + Style.RESET_ALL + "                                                   " + Style.RESET_ALL)
+            print(Back.GREEN + Fore.WHITE + "....................................................." + Style.RESET_ALL)
+
+            receberMsg = int(input("Esperar por mais mensagens? [1] Sim [0] Não: "))
+            if not receberMsg:
+                break
+            os.system("clear")
     except KeyboardInterrupt:
         print('Interrupted')
         try:
