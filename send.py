@@ -82,7 +82,7 @@ def descriptografar_texto_from_cesar(msg_criptografada, chave):
     return msg_final
 
 
-connection = pika.BlockingConnection(pika.ConnectionParameters("localhost"))
+connection = pika.BlockingConnection(pika.ConnectionParameters(host="20.206.161.10", credentials=pika.PlainCredentials("user", "PzLSXy7zxxx:")))
 channel = connection.channel()
 channel.queue_declare(queue="fila")
 

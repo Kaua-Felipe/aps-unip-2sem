@@ -4,7 +4,9 @@ from colorama import Fore, Style, Back, init
 
 msg = ""
 def main():
-    connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+    credentials = pika.PlainCredentials("user", "PzLSXy7zxxx:")
+
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host="20.206.161.10", credentials=credentials))
     channel = connection.channel()
 
     channel.queue_declare(queue='fila')
