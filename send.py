@@ -154,10 +154,11 @@ def animacao_envio():
 
 init()
 
-# connection = pika.BlockingConnection(pika.ConnectionParameters(host="4.228.50.58", credentials=pika.PlainCredentials('vm-user', 'RabbitMQ1234')))
-connection = pika.BlockingConnection(pika.ConnectionParameters("localhost"))
+connection = pika.BlockingConnection(pika.ConnectionParameters(host="48.211.222.206", credentials=pika.PlainCredentials('aps2semestre', 'RabbitMQ1234')))
 channel = connection.channel()
+channel.exchange_declare(exchange="minha_exchange", exchange_type="direct")
 channel.queue_declare(queue="fila")
+channel.queue_bind(exchange="minha_exchange", queue="fila", routing_key="minha_rota")
 
 system("cls")
 
@@ -172,11 +173,15 @@ print(Back.BLUE + r'''
 *******************************************************************************************************''' + Style.RESET_ALL)
 key = input(Back.LIGHTBLACK_EX + "Informe a chave a ser utilizada:" + Style.RESET_ALL + " ")
 print()
-msg = input(Back.LIGHTBLACK_EX + "Mensagem a ser enviada:" + Style.RESET_ALL + " ")
+msg = "uivbueg78erg78eg78ergf78gef78gre7fg78eg87fg7eg78gf87ge78gf78eg78fg87ge87gf8ge87fg87er"
+while len(msg) > 128:
+    msg = input(Back.LIGHTBLACK_EX + "Mensagem a ser enviada:" + Style.RESET_ALL + " ")
+    if len(msg) > 128:
+        print("[EERO] A mensagem deve ter menos que 129 caracteres!")
 system("cls")
 
 
-channel.basic_publish(exchange="", routing_key="fila", body=criptografar(key, msg))
+channel.basic_publish(exchange="minha_exchange", routing_key="minha_rota", body=criptografar(key, msg))
 animacao_envio()
 
 connection.close()

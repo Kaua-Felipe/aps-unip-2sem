@@ -166,7 +166,7 @@ def animacao_envio():
 
     os.system("cls")
 def start_consuming():
-    connection = pika.BlockingConnection(pika.ConnectionParameters("localhost"))
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host="48.211.222.206", credentials=pika.PlainCredentials('aps2semestre', 'RabbitMQ1234')))
     channel = connection.channel()
 
     channel.queue_declare(queue='fila')
