@@ -172,7 +172,7 @@ print(Back.BLUE + r'''
 *                                                                                                     *
 *******************************************************************************************************''' + Back.RESET + Style.RESET_ALL)
 key = input(Back.LIGHTBLACK_EX + "Informe a chave a ser utilizada:" + Style.RESET_ALL + " ")
-print()
+system("cls")
 msg = ""
 while True:
     msg = input(Back.LIGHTBLACK_EX + "Mensagem a ser enviada:" + Style.RESET_ALL + " ")
