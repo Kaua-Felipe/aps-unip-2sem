@@ -170,14 +170,16 @@ print(Back.BLUE + r'''
 *  | |___|  _ < | ||  __/ | || |_| | |_| |  _ <  / ___ \|  _|  | | / ___ \      / ___ \| |___ ___) |  *
 *   \____|_| \_\___|_|    |_| \___/ \____|_| \_\/_/   \_\_|   |___/_/   \_\    /_/   \_\_____|____/   *
 *                                                                                                     *
-*******************************************************************************************************''' + Style.RESET_ALL)
+*******************************************************************************************************''' + Back.RESET + Style.RESET_ALL)
 key = input(Back.LIGHTBLACK_EX + "Informe a chave a ser utilizada:" + Style.RESET_ALL + " ")
 print()
-msg = "uivbueg78erg78eg78ergf78gef78gre7fg78eg87fg7eg78gf87ge78gf78eg78fg87ge87gf8ge87fg87er"
-while len(msg) > 128:
+msg = ""
+while True:
     msg = input(Back.LIGHTBLACK_EX + "Mensagem a ser enviada:" + Style.RESET_ALL + " ")
     if len(msg) > 128:
         print("[EERO] A mensagem deve ter menos que 129 caracteres!")
+    else:
+        break
 system("cls")
 
 
